@@ -1,0 +1,418 @@
+html
+{
+  background: black;
+}
+
+/*CSS pour bandeau-------------------------------------------------------------------------------------*/
+header
+{
+  background-color: royalblue;
+  padding: 0.1em;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 1;
+}
+
+header #texte
+{
+  text-align: center;
+  font-size: 2em;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+/*CSS pour la page----------------------------------------------------------------------------------------*/
+.page
+{
+  margin-top: 67.2px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  background: linear-gradient(to right, #a8c0ff, royalblue);
+}
+
+#colonne-gauche
+{
+    width: 13%;
+}
+
+#colonne-gauche button{
+  margin-top: 20px;
+  background-color: royalblue;
+  border-radius: 10%;
+  color: white;
+  /*max-width: fit-content;*/
+  min-width: 138px;
+  border-style: none;
+  font-size: large;
+  transition: all 0.5s ease-in-out;
+}
+
+#colonne-gauche button:hover{
+  transform: translateX(20px);
+}
+
+#colonne-gauche #typeRetex{
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+#haut img
+{
+  width: 12vw;
+  margin-top: 40px;
+  margin-left: 40px;
+  border-radius: 100%;
+}
+
+#haut
+{
+  display: flex;
+}
+
+#haut #texte
+{
+  margin-top: 50px;
+  margin-left: 20px;
+  font-size: 3vw;
+  
+}
+
+#colonne-gauche ul
+{
+  position: absolute;
+  left: -1.9% ;
+  margin-top: 7vh;
+  box-sizing: border-box;
+  transition: all 0.5s ease; 
+}
+
+#colonne-gauche ul li
+{
+  display: inline-block;
+  display: flex;
+  list-style-type:none;
+  font-size: 1.8vw;
+}
+  
+#colonne-centrale 
+{
+    background-color: #ffffff28;
+    width: 87%;
+    min-height: 93vh;
+}
+
+/*CSS pour bouton contact en bas a gauche----------------------------------------------------------------*/
+button.contact 
+{
+  position: fixed;
+  bottom: 2vh;
+  left: 2vh;
+  font-family: inherit;
+  font-size: 20px;
+  background: royalblue;
+  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+button.contact span 
+{
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button.contact svg 
+{
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button.contact:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+button.contact:hover svg {
+  transform: translateX(1.7em) rotate(45deg) scale(1.1);
+}
+
+button.contact:hover span {
+  transform: translateX(5em);
+}
+
+button.contact:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+/*CSS pour la page de contact----------------------------------------------------------------------------*/
+
+#infoContact{
+  font-size: 30px;
+  display: none; /*mettre en none quand fini*/
+  top: 18%;
+  left: 25%;
+  position: fixed;
+  max-width: 50%;
+  background: linear-gradient(to right, #a8c0ff, royalblue);
+  overflow: hidden;
+  border-radius: 7%;
+  border-top-right-radius: 0%;
+}
+
+#infoContact #informations a{
+  text-decoration: none;
+  color: black;
+}
+
+.fond-sombre {
+  background-color: rgb(0, 0, 0);
+}
+
+#infoContact #defilement{
+  margin-top: 10px;
+  width: 100%;
+  white-space: nowrap;
+  animation: scroll-left 30s linear infinite; /*a changer en fonction du texte en version finale*/
+}
+
+#infoContact #texte{
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: royalblue;
+  padding-left: 30px;
+}
+
+#infoContact button.fermerContact{
+  padding: 0;
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 45px;
+  width: 45px;
+}
+
+#infoContact button.fermerContact img{
+  position: absolute;
+  width: 45px;
+  top: 0px;
+  left: 0px;
+}
+
+#infoContact #informations #info{
+  font-weight: bold;
+  height: 120px;
+  margin-top: 6vw;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column;
+  margin-bottom: 7vw;
+  font-size: 2.1vw;
+}
+
+#infoContact #informations{
+  display: flex;
+  align-items: center;
+}
+
+#infoContact #informations img{
+  width: 45px;
+}
+
+#infoContact #informations #grosContact{
+  width: 30%;
+  height: 50%;
+}
+
+#infoContact #contenu #bottom button img{
+  max-width: 60px;  
+  transition: transform 0.2s ease-out;
+}
+
+#infoContact #contenu #bottom button img:hover{
+  transform: translateY(-7px);
+}
+
+#infoContact #contenu #bottom{
+display: flex;
+justify-content: space-around;
+}
+
+#infoContact #contenu #bottom button{
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/*CSS pour le caroussel-----------------------------------------------------------------------------------*/
+.carousel {
+  width: 100%;
+  max-width: 70vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.carousel-images {
+  display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 10px;
+
+}
+
+.carousel-images::-webkit-scrollbar {
+  display: none;
+}
+
+#carousel-image {
+  flex: 0 0 auto;
+  max-width: 40%;
+  scroll-snap-align: center;
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px;
+  max-height: 350px;
+}
+
+#carousel-image button{
+  background: transparent;
+  border: none;
+  width: 100%; 
+}
+
+#carousel-image img {
+  transition: transform 0.3s ease-in-out;
+  max-width: 90%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+}
+
+#carousel-image img:hover{
+  transform: scale(1.05);
+}
+
+#carousel-image p {
+  margin-top: 10px;
+}
+
+.carousel-controls {
+  margin-top: 10px;
+}
+
+.carousel-controls button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+/*CSS pour les pages retex-------------------------------------------------------*/
+
+#retex {
+  background: linear-gradient(to right, #a8c0ff, royalblue);
+  position: fixed;
+  display: none;
+  flex-flow: column;
+  bottom: 20vh;
+  left: 15vw;
+  border-radius: 7%;
+  overflow: hidden;
+  border-top-right-radius: 0%;
+}
+
+#retex #top{
+  font-weight: bold;
+  text-decoration: underline;
+  background-color: royalblue;
+  font-size: 30px;
+  text-align: center;
+}
+
+#retex button.fermerRetex{
+    padding: 0;
+    border: none;
+    background: transparent;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 45px;
+    width: 45px;
+}
+
+#retex button.fermerRetex img{
+  position: absolute;
+    width: 45px;
+    top: 0px;
+    left: 0px;
+}
+
+#retex #bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70vw;
+  height: 60vh;
+}
+
+#retex #bottom #right{
+  width: 50%;
+  font-size: 22px;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.gras{
+  font-weight: bold;
+  font-size: 25px;
+}
+
+#retex #bottom #left{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: space-around;
+}
+#retex #bottom #left img{
+  width: 17vw;
+}
+
+
+/*CSS Media Queries----------------------------------------------------------------------------------------*/
+
+@media screen and (max-width: 800px) {
+/**/
+}
