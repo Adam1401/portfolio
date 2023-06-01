@@ -41,10 +41,9 @@ header #texte
 #colonne-gauche button{
   margin-top: 20px;
   background-color: royalblue;
-  border-radius: 10%;
+  border-radius: 10px;
   color: white;
-  /*max-width: fit-content;*/
-  min-width: 138px;
+  min-width: 54%;
   border-style: none;
   font-size: large;
   transition: all 0.5s ease-in-out;
@@ -79,23 +78,6 @@ header #texte
   margin-left: 20px;
   font-size: 3vw;
   
-}
-
-#colonne-gauche ul
-{
-  position: absolute;
-  left: -1.9% ;
-  margin-top: 7vh;
-  box-sizing: border-box;
-  transition: all 0.5s ease; 
-}
-
-#colonne-gauche ul li
-{
-  display: inline-block;
-  display: flex;
-  list-style-type:none;
-  font-size: 1.8vw;
 }
   
 #colonne-centrale 
@@ -176,7 +158,7 @@ button.contact:active {
   max-width: 50%;
   background: linear-gradient(to right, #a8c0ff, royalblue);
   overflow: hidden;
-  border-radius: 7%;
+  border-radius: 20px;
   border-top-right-radius: 0%;
 }
 
@@ -256,8 +238,8 @@ button.contact:active {
 }
 
 #infoContact #contenu #bottom{
-display: flex;
-justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 #infoContact #contenu #bottom button{
@@ -348,7 +330,7 @@ justify-content: space-around;
   flex-flow: column;
   bottom: 20vh;
   left: 15vw;
-  border-radius: 7%;
+  border-radius: 20px;
   overflow: hidden;
   border-top-right-radius: 0%;
 }
@@ -381,7 +363,7 @@ justify-content: space-around;
 
 #retex #bottom{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 70vw;
   height: 60vh;
@@ -389,14 +371,14 @@ justify-content: space-around;
 
 #retex #bottom #right{
   width: 50%;
-  font-size: 22px;
+  font-size: 1.4vw;
   text-align: center;
   margin-right: 20px;
 }
 
 .gras{
   font-weight: bold;
-  font-size: 25px;
+  font-size: 1.6vw;
 }
 
 #retex #bottom #left{
@@ -415,4 +397,59 @@ justify-content: space-around;
 
 @media screen and (max-width: 800px) {
 /**/
+  .carousel{
+    max-height: 70%;
+    top: 5vh;
+  }
+  #carousel-image {
+    max-width: 100%;
+  }
+  #colonne-gauche button{
+    min-width: 100%;
+    max-width: 100%;
+    font-size: 3vw;
+  }
+  #haut img
+  {
+    width: 35vw;
+    margin-left: 5vw;
+  }
+  #haut #texte
+  {
+    margin-top: 50px;
+    margin-left: 20px;
+    font-size: 6vw;
+  }
+  #retex #top{
+    font-size: 6vw;
+  }
+  #retex #bottom{
+    justify-content: space-around;
+    flex-direction: column;
+  }
+  #retex #bottom #right{
+    width: 90%;
+    font-size: 3.5vw;
+    margin-right: 0px;
+  }
+  .gras{
+    font-size: 4vw;
+  }
+  #retex #bottom #left img{
+    width: 20vw;
+  }
+  #infoContact{
+    font-size: 6vw;
+    top: 15vh;
+    left: 15vw;
+    max-width: 70vw;
+    min-height: 50vh;
+    overflow: hidden;
+  }
+  #infoContact #informations #info{
+    height: 20vh;
+    justify-content: space-around;
+    font-size: 2.5vw;
+  }
+  
 }
