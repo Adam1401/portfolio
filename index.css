@@ -392,6 +392,18 @@ button.contact:active {
   width: 17vw;
 }
 
+.download_ODOMO{
+  border: none;
+  background: transparent;
+  position: fixed;
+  
+  bottom: 3vh;
+  right: 3vw;
+}
+.download_ODOMO img{
+  width: 100px;
+}
+
 
 /*CSS Media Queries----------------------------------------------------------------------------------------*/
 

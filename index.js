@@ -38,8 +38,14 @@ const ouvrirExterne = document.querySelector('.EXTERNE');
 const ouvrirVmware = document.querySelector('.VMWARE');
 const ouvrirBillet = document.querySelector('.BILLET');
 
+const downloadODOMO = document.querySelector('.download_ODOMO');
+
 let scrollAmount = 0;
 const step = carouselImages.offsetWidth;
+
+downloadODOMO.addEventListener('click', () => {
+  window.open("retex/ODOMO.pdf", "_blank");
+})
 
 prevButton.addEventListener('click', () => {
   if (scrollAmount > 0) {
