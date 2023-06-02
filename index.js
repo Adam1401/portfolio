@@ -38,13 +38,38 @@ const ouvrirExterne = document.querySelector('.EXTERNE');
 const ouvrirVmware = document.querySelector('.VMWARE');
 const ouvrirBillet = document.querySelector('.BILLET');
 
+const downloadBIOSPHERE = document.querySelector('.download_BIOSPHERE');
 const downloadODOMO = document.querySelector('.download_ODOMO');
+const downloadCANNAJ = document.querySelector('.download_CANNAJ');
+const downloadEXTERNE = document.querySelector('.download_EXTERNE');
+const downloadVMWARE = document.querySelector('.download_VMWARE');
+const downloadBILLET = document.querySelector('.download_BILLET');
 
 let scrollAmount = 0;
 const step = carouselImages.offsetWidth;
 
 downloadODOMO.addEventListener('click', () => {
   window.open("retex/ODOMO.pdf", "_blank");
+})
+
+downloadBIOSPHERE.addEventListener('click', () => {
+  window.open("retex/BIOSPHERE.pdf", "_blank");
+})
+
+downloadCANNAJ.addEventListener('click', () => {
+  window.open("retex/CANNAJ.pdf", "_blank");
+})
+
+downloadEXTERNE.addEventListener('click', () => {
+  window.open("retex/EXTERNE.pdf", "_blank");
+})
+
+downloadVMWARE.addEventListener('click', () => {
+  window.open("retex/VMWARE.pdf", "_blank");
+})
+
+downloadBILLET.addEventListener('click', () => {
+  window.open("retex/BILLET.pdf", "_blank");
 })
 
 prevButton.addEventListener('click', () => {

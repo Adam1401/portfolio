@@ -392,7 +392,7 @@ button.contact:active {
   width: 17vw;
 }
 
-.download_ODOMO{
+#download{
   border: none;
   background: transparent;
   position: fixed;
@@ -400,7 +400,7 @@ button.contact:active {
   bottom: 3vh;
   right: 3vw;
 }
-.download_ODOMO img{
+#download img{
   width: 100px;
 }
 
@@ -463,5 +463,7 @@ button.contact:active {
     justify-content: space-around;
     font-size: 2.5vw;
   }
-  
+  #infoContact #defilement{
+    animation: scroll-left 20s linear infinite; /*a changer en fonction du texte en version finale*/
+  }
 }
