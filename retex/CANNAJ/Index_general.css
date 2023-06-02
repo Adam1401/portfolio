@@ -1,0 +1,170 @@
+/*
+Partie du CSS pour la page Contact:
+*/
+[type ="email"] {background:url(email.png) left center no-repeat;}
+[required]{border:1px solid red;}
+[type ="number"] {width: 100px;}
+
+#InfosContact div {
+	margin-bottom: 10px;
+}
+
+#textContact{	
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	background-color: rgba(255, 255, 255, 0.904);
+	margin-left: 35%;
+	margin-right: 35%;
+	text-align: center;
+}
+
+#textContact p{
+	font-style: italic;
+	font-size: 25px;
+}
+
+#InfosContact form{
+	padding: 3%;
+	background-color: rgba(255, 255, 255, 0.904);
+	margin-top: 10%;
+}
+
+#contact{
+	margin-top: 8%;
+	display: flex;
+	flex-flow:row wrap;
+	justify-content: space-evenly;
+
+}
+
+/*
+Partie du CSS pour la page presentation + fonctions + PESTEL:
+*/
+article.other > #listePres{
+	display: flex;
+	list-style: none;
+}
+
+article.other blockquote{
+	font-size: 25px;
+}
+
+article.other .place:nth-of-type(1){
+	flex: 1;
+}
+
+article.other .place:nth-of-type(2){
+	margin-top: 5%;
+	flex: 2;
+	text-indent: 40px;
+	background-color: rgba(255, 255, 255, 0.904);
+}
+
+article.other .place:nth-of-type(3){
+	flex: 1;
+}
+
+.listeP{
+	list-style-type: square;
+	font-size: 20px !important;
+}
+
+/*
+Partie du CSS pour la page fonctions + PESTEL:
+*/
+article.other{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 60vh;
+}
+
+#listeRetD{
+	list-style-type: square;
+}
+
+.place h1{
+	font-size: 180%;
+}
+
+/*
+Partie du CSS pour la page PESTEL:
+*/
+.Opportunités h2{
+	color: green;
+}
+.Menaces h2{
+	color: red;
+}
+
+/*
+Partie du CSS pour la page Index:
+*/
+
+
+article.Index{
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+}
+
+article.Index h1{	
+	font-family: MV Boli;
+	margin: 5%;
+	font-size: 10em;
+    color: white;
+	text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+article.Index p{
+	color: white;
+	text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+#Consulting{
+	position: relative;
+	bottom: 150px;
+	right: 180px;
+}
+
+#phrase{	
+	position: relative;
+	
+	font-family: MV Boli;
+	font-size: 200%;
+}
+
+#exclure { 
+	font-family: MV Boli;
+	font-size: 100%;
+	color: white;
+	
+}
+
+#exclure:hover{
+	color: lightgrey;
+}
+
+@media screen and (max-width:1090px) {
+	#Consulting{
+		right: 140px;
+		bottom: 80px;
+	}
+
+	article.Index h1{
+		font-size: 8em;
+	}
+
+	#phrase{
+		font-size: 1.5em;
+	}
+}
+
+/*
+Partie du CSS pour la page mentions:
+*/
+.place p{
+	padding-left: 5%;
+	padding-right: 5%;
+}

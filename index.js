@@ -57,7 +57,7 @@ downloadBIOSPHERE.addEventListener('click', () => {
 })
 
 downloadCANNAJ.addEventListener('click', () => {
-  window.open("retex/CANNAJ.pdf", "_blank");
+  window.open("retex/CANNAJ/accueil.html", "_blank");
 })
 
 downloadEXTERNE.addEventListener('click', () => {
@@ -229,7 +229,7 @@ retexPerso.addEventListener('click', () => { //-------------------Perso
     left: 0,
     behavior: 'smooth'
   });
-});
+}); 
 
 retexCom.addEventListener('click', () => { //------------------Communication
   retexBiosphere.style.display = 'none';
