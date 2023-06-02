@@ -466,4 +466,7 @@ button.contact:active {
   #infoContact #defilement{
     animation: scroll-left 20s linear infinite; /*a changer en fonction du texte en version finale*/
   }
+  #download img{
+    filter: invert(100%);
+  }
 }
