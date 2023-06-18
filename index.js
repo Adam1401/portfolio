@@ -5,7 +5,7 @@ const carouselTitle = document.getElementById('carouselTitle');
 const ouvrirContact = document.querySelector('.contact');
 const fermerContact = document.querySelector('.fermerContact');
 const bandeauFixed = document.querySelector('.bandeau-fixed');
-const maPage = document.querySelector('.page');
+const maPage = document.querySelector('.main');
 const fermerRetex = document.querySelectorAll('.fermerRetex');
 
 const retexJava = document.querySelector('.java');
@@ -24,53 +24,25 @@ const retexExterne = document.querySelector('.imageExterne');
 const retexVmware = document.querySelector('.imageVmware');
 const retexBillet = document.querySelector('.imageBillet');
 
-const pageBiosphere = document.querySelector('.biosphere');
-const pageOdomo = document.querySelector('.odomo');
-const pageCannaj = document.querySelector('.cannaj');
-const pageExterne = document.querySelector('.externe');
-const pageVmware = document.querySelector('.vmware');
-const pageBillet = document.querySelector('.billet');
-
-const ouvrirBiosphere = document.querySelector('.BIOSPHERE');
-const ouvrirOdomo = document.querySelector('.ODOMO');
-const ouvrirCannaj = document.querySelector('.CANNAJ');
-const ouvrirExterne = document.querySelector('.EXTERNE');
-const ouvrirVmware = document.querySelector('.VMWARE');
-const ouvrirBillet = document.querySelector('.BILLET');
-
-const downloadBIOSPHERE = document.querySelector('.download_BIOSPHERE');
-const downloadODOMO = document.querySelector('.download_ODOMO');
 const downloadCANNAJ = document.querySelector('.download_CANNAJ');
-const downloadEXTERNE = document.querySelector('.download_EXTERNE');
-const downloadVMWARE = document.querySelector('.download_VMWARE');
-const downloadBILLET = document.querySelector('.download_BILLET');
+const downloadButtons = document.querySelectorAll('.download');
+
+const ouvrirProjets = document.querySelectorAll('.ouvrir-projet');
+const pages = document.querySelectorAll('.page');
 
 let scrollAmount = 0;
 const step = carouselImages.offsetWidth;
-
-downloadODOMO.addEventListener('click', () => {
-  window.open("retex/ODOMO.pdf", "_blank");
-})
-
-downloadBIOSPHERE.addEventListener('click', () => {
-  window.open("retex/BIOSPHERE.pdf", "_blank");
-})
 
 downloadCANNAJ.addEventListener('click', () => {
   window.open("retex/CANNAJ/accueil.html", "_blank");
 })
 
-downloadEXTERNE.addEventListener('click', () => {
-  window.open("retex/EXTERNE.pdf", "_blank");
-})
-
-downloadVMWARE.addEventListener('click', () => {
-  window.open("retex/VMWARE.pdf", "_blank");
-})
-
-downloadBILLET.addEventListener('click', () => {
-  window.open("retex/BILLET.pdf", "_blank");
-})
+downloadButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filePath = button.classList[1].replace('download_', '');
+    window.open(`retex/${filePath}.pdf`, "_blank");
+  });
+});
 
 prevButton.addEventListener('click', () => {
   if (scrollAmount > 0) {
@@ -93,7 +65,6 @@ nextButton.addEventListener('click', () => {
     });
   }
 });
-
 
 //------------------------------------------------------------------------------------Contact
 
@@ -119,186 +90,104 @@ fermerContact.addEventListener('click', () => {
 
 //----------------------------------------------------------------------------------------------------------Projets
 
-ouvrirOdomo.addEventListener('click', () => {//-----------------odomo
-  document.body.classList.add('fond-sombre');
+ouvrirProjets.forEach((bouton, index) => {
+  bouton.addEventListener('click', () => {
+    document.body.classList.add('fond-sombre');
 
-  pageOdomo.style.display = 'block';
-  bandeauFixed.style.opacity = 0.3;
-  maPage.style.opacity = 0.3;
-  infoContact.style.display = 'none'
-});
+    pages.forEach(page => {
+      page.style.display = 'none';
+    });
 
-ouvrirBiosphere.addEventListener('click', () => {//---------------Biosphere
-  document.body.classList.add('fond-sombre');
-
-  pageBiosphere.style.display = 'block';
-  bandeauFixed.style.opacity = 0.3;
-  maPage.style.opacity = 0.3;
-  infoContact.style.display = 'none'
-});
-
-ouvrirCannaj.addEventListener('click', () => {//--------------Cannaj web
-  document.body.classList.add('fond-sombre');
-
-  pageCannaj.style.display = 'block';
-  bandeauFixed.style.opacity = 0.3;
-  maPage.style.opacity = 0.3;
-  infoContact.style.display = 'none'
-});
-
-ouvrirExterne.addEventListener('click', () => {//---------------analyse externe cannaj
-  document.body.classList.add('fond-sombre');
-
-  pageExterne.style.display = 'block';
-  bandeauFixed.style.opacity = 0.3;
-  maPage.style.opacity = 0.3;
-  infoContact.style.display = 'none'
-});
-
-ouvrirBillet.addEventListener('click', () => {//------------------------billeterie 
-  document.body.classList.add('fond-sombre');
-
-  pageBillet.style.display = 'block';
-  bandeauFixed.style.opacity = 0.3;
-  maPage.style.opacity = 0.3;
-  infoContact.style.display = 'none'
-});
-
-ouvrirVmware.addEventListener('click', () => {//------------------------vmware
-  document.body.classList.add('fond-sombre');
-
-  pageVmware.style.display = 'block';
-  bandeauFixed.style.opacity = 0.3;
-  maPage.style.opacity = 0.3;
-  infoContact.style.display = 'none'
+    pages[index].style.display = 'block';
+    bandeauFixed.style.opacity = 0.3;
+    maPage.style.opacity = 0.3;
+    infoContact.style.display = 'none';
+  });
 });
 
 //--------------------------------------------------------------------------------------------------------------Language
 
-retexJava.addEventListener('click', () => { //---------------Java
-  retexBiosphere.style.display = 'block';
-  retexOdomo.style.display = 'block';
-  retexBillet.style.display = 'none';
-  retexVmware.style.display = 'none';
-  retexCannaj.style.display = 'none';
-  retexExterne.style.display = 'none';
+const retexOptions = {
+  java: {
+    images: [retexBiosphere, retexOdomo],
+    display: ['block', 'block'],
+    hide: [retexBillet, retexVmware, retexCannaj, retexExterne]
+  },
+  recents: {
+    images: [retexBiosphere, retexOdomo, retexBillet, retexVmware, retexCannaj, retexExterne],
+    display: ['block', 'block', 'block', 'block', 'block', 'block'],
+    hide: []
+  },
+  sql: {
+    images: [retexBillet],
+    display: ['block'],
+    hide: [retexBiosphere, retexOdomo, retexVmware, retexCannaj, retexExterne],
+  },
+  perso: {
+    images: [],
+    display: [],
+    hide: [retexBiosphere, retexOdomo, retexBillet, retexVmware, retexCannaj, retexExterne],
+  },
+  communication: {
+    images: [retexExterne],
+    display: ['block'],
+    hide: [retexBiosphere, retexOdomo, retexBillet, retexVmware, retexCannaj],
+  },
+  gestion: {
+    images: [retexExterne, retexBillet],
+    display: ['block', 'block'],
+    hide: [retexBiosphere, retexOdomo, retexVmware, retexCannaj],
+  },
+  web: {
+    images: [retexCannaj],
+    display: ['block'],
+    hide: [retexBiosphere, retexOdomo, retexBillet, retexVmware, retexExterne],
+  },
+  bash: {
+    images: [retexVmware],
+    display: ['block'],
+    hide: [retexBiosphere, retexOdomo, retexBillet, retexCannaj, retexExterne],
+  },
+};
+
+function updateRetexDisplay(images, display, hide) {
+  images.forEach((image, index) => {
+    image.style.display = display[index];
+  });
+
+  hide.forEach(element => {
+    element.style.display = 'none';
+  });
+
   carouselImages.scrollTo({
     top: 0,
     left: 0,
     behavior: 'smooth'
   });
-});
+}
 
-retexRecents.addEventListener('click', () => { //--------------TOUT
-  retexBiosphere.style.display = 'block';
-  retexOdomo.style.display = 'block';
-  retexBillet.style.display = 'block';
-  retexVmware.style.display = 'block';
-  retexCannaj.style.display = 'block';
-  retexExterne.style.display = 'block';
-  carouselImages.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
+function addRetexClickEvent(bouton, options) {
+  bouton.addEventListener('click', () => {
+    updateRetexDisplay(options.images, options.display, options.hide);
   });
-});
+}
 
-retexSql.addEventListener('click', () => { //-------------------BDD
-  retexBiosphere.style.display = 'none';
-  retexOdomo.style.display = 'none';
-  retexBillet.style.display = 'block';
-  retexVmware.style.display = 'none';
-  retexCannaj.style.display = 'none';
-  retexExterne.style.display = 'none';
-  carouselImages.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-});
-
-retexPerso.addEventListener('click', () => { //-------------------Perso
-  retexBiosphere.style.display = 'none';
-  retexOdomo.style.display = 'none';
-  retexBillet.style.display = 'none';
-  retexVmware.style.display = 'none';
-  retexCannaj.style.display = 'none';
-  retexExterne.style.display = 'none';
-  carouselImages.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-}); 
-
-retexCom.addEventListener('click', () => { //------------------Communication
-  retexBiosphere.style.display = 'none';
-  retexOdomo.style.display = 'none';
-  retexBillet.style.display = 'none';
-  retexVmware.style.display = 'none';
-  retexCannaj.style.display = 'none';
-  retexExterne.style.display = 'block';
-  carouselImages.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-});
-
-retexGestion.addEventListener('click', () => { //---------------------Gestion
-  retexBiosphere.style.display = 'none';
-  retexOdomo.style.display = 'none';
-  retexBillet.style.display = 'block';
-  retexVmware.style.display = 'none';
-  retexCannaj.style.display = 'none';
-  retexExterne.style.display = 'block';
-  carouselImages.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-});
-
-retexWeb.addEventListener('click', () => { //--------------------WEB
-  retexBiosphere.style.display = 'none';
-  retexOdomo.style.display = 'none';
-  retexBillet.style.display = 'none';
-  retexVmware.style.display = 'none';
-  retexCannaj.style.display = 'block';
-  retexExterne.style.display = 'none';
-  carouselImages.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-});
-
-retexBash.addEventListener('click', () => { //----------------Bash
-  retexBiosphere.style.display = 'none';
-  retexOdomo.style.display = 'none';
-  retexBillet.style.display = 'none';
-  retexVmware.style.display = 'block';
-  retexCannaj.style.display = 'none';
-  retexExterne.style.display = 'none';
-  carouselImages.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-});
-
-
-
+addRetexClickEvent(retexJava, retexOptions.java);
+addRetexClickEvent(retexRecents, retexOptions.recents);
+addRetexClickEvent(retexSql, retexOptions.sql);
+addRetexClickEvent(retexPerso, retexOptions.perso);
+addRetexClickEvent(retexCom, retexOptions.communication);
+addRetexClickEvent(retexGestion, retexOptions.gestion);
+addRetexClickEvent(retexWeb, retexOptions.web);
+addRetexClickEvent(retexBash, retexOptions.bash);
 
 fermerRetex.forEach(bouton => {
   bouton.addEventListener('click', () => {
-    pageOdomo.style.display = 'none';
-    pageBiosphere.style.display = 'none';
-    pageCannaj.style.display = 'none';
-    pageExterne.style.display = 'none';
-    pageVmware.style.display = 'none';
-    pageBillet.style.display = 'none'; 
-    
+    pages.forEach(page => {
+      page.style.display = 'none';
+    });
+
+    // Rétablir l'opacité normale des éléments
     bandeauFixed.style.opacity = 1;
     maPage.style.opacity = 1;
   });
