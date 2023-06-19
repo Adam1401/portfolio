@@ -8,27 +8,14 @@ const bandeauFixed = document.querySelector('.bandeau-fixed');
 const maPage = document.querySelector('.main');
 const fermerRetex = document.querySelectorAll('.fermerRetex');
 
-const retexJava = document.querySelector('.java');
-const retexSql = document.querySelector('.sql');
-const retexWeb = document.querySelector('.web');
-const retexCom = document.querySelector('.communication');
-const retexGestion = document.querySelector('.gestion');
-const retexRecents = document.querySelector('.recents');
-const retexPerso = document.querySelector('.perso');
-const retexBash = document.querySelector('.bash');
-
-const retexOdomo = document.querySelector('.imageOdomo');
-const retexBiosphere = document.querySelector('.imageBiosphere');
-const retexCannaj = document.querySelector('.imageCannaj');
-const retexExterne = document.querySelector('.imageExterne');
-const retexVmware = document.querySelector('.imageVmware');
-const retexBillet = document.querySelector('.imageBillet');
-
 const downloadCANNAJ = document.querySelector('.download_CANNAJ');
 const downloadButtons = document.querySelectorAll('.download');
 
 const ouvrirProjets = document.querySelectorAll('.ouvrir-projet');
 const pages = document.querySelectorAll('.page');
+
+const retexCategories = document.querySelectorAll('.retex-category');
+const retexImages = document.querySelectorAll('.retex-image');
 
 let scrollAmount = 0;
 const step = carouselImages.offsetWidth;
@@ -73,12 +60,10 @@ ouvrirContact.addEventListener('click', () => {
   infoContact.style.display = 'block';
   bandeauFixed.style.opacity = 0.3;
   maPage.style.opacity = 0.3;
-  pageOdomo.style.display = 'none'
-  pageBiosphere.style.display = 'none'
-  pageBillet.style.display = 'none'
-  pageCannaj.style.display = 'none'
-  pageExterne.style.display = 'none'
-  pageVmware.style.display = 'none'
+
+  pages.forEach(page => {
+    page.style.display = 'none';
+  });
 
 });
 
@@ -107,79 +92,25 @@ ouvrirProjets.forEach((bouton, index) => {
 
 //--------------------------------------------------------------------------------------------------------------Language
 
-const retexOptions = {
-  java: {
-    images: [retexBiosphere, retexOdomo],
-    display: ['block', 'block'],
-    hide: [retexBillet, retexVmware, retexCannaj, retexExterne]
-  },
-  recents: {
-    images: [retexBiosphere, retexOdomo, retexBillet, retexVmware, retexCannaj, retexExterne],
-    display: ['block', 'block', 'block', 'block', 'block', 'block'],
-    hide: []
-  },
-  sql: {
-    images: [retexBillet],
-    display: ['block'],
-    hide: [retexBiosphere, retexOdomo, retexVmware, retexCannaj, retexExterne],
-  },
-  perso: {
-    images: [],
-    display: [],
-    hide: [retexBiosphere, retexOdomo, retexBillet, retexVmware, retexCannaj, retexExterne],
-  },
-  communication: {
-    images: [retexExterne],
-    display: ['block'],
-    hide: [retexBiosphere, retexOdomo, retexBillet, retexVmware, retexCannaj],
-  },
-  gestion: {
-    images: [retexExterne, retexBillet],
-    display: ['block', 'block'],
-    hide: [retexBiosphere, retexOdomo, retexVmware, retexCannaj],
-  },
-  web: {
-    images: [retexCannaj],
-    display: ['block'],
-    hide: [retexBiosphere, retexOdomo, retexBillet, retexVmware, retexExterne],
-  },
-  bash: {
-    images: [retexVmware],
-    display: ['block'],
-    hide: [retexBiosphere, retexOdomo, retexBillet, retexCannaj, retexExterne],
-  },
-};
+retexCategories.forEach(category => {
+  category.addEventListener('click', () => {
+    const categoryName = category.textContent.trim();
 
-function updateRetexDisplay(images, display, hide) {
-  images.forEach((image, index) => {
-    image.style.display = display[index];
+    retexImages.forEach(image => {
+      if (image.classList.contains(categoryName)) {
+        image.style.display = 'block';
+      } else {
+        image.style.display = 'none';
+      }
+    });
+
+    carouselImages.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   });
-
-  hide.forEach(element => {
-    element.style.display = 'none';
-  });
-
-  carouselImages.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
-}
-
-function addRetexClickEvent(bouton, options) {
-  bouton.addEventListener('click', () => {
-    updateRetexDisplay(options.images, options.display, options.hide);
-  });
-}
-
-addRetexClickEvent(retexJava, retexOptions.java);
-addRetexClickEvent(retexRecents, retexOptions.recents);
-addRetexClickEvent(retexSql, retexOptions.sql);
-addRetexClickEvent(retexPerso, retexOptions.perso);
-addRetexClickEvent(retexCom, retexOptions.communication);
-addRetexClickEvent(retexGestion, retexOptions.gestion);
-addRetexClickEvent(retexWeb, retexOptions.web);
-addRetexClickEvent(retexBash, retexOptions.bash);
+});
 
 fermerRetex.forEach(bouton => {
   bouton.addEventListener('click', () => {

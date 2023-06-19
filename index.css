@@ -278,7 +278,7 @@ button.contact:active {
   display: none;
 }
 
-#carousel-image {
+.retex-image {
   flex: 0 0 auto;
   max-width: 40%;
   scroll-snap-align: center;
@@ -288,24 +288,24 @@ button.contact:active {
   max-height: 350px;
 }
 
-#carousel-image button{
+.retex-image button{
   background: transparent;
   border: none;
   width: 100%; 
 }
 
-#carousel-image img {
+.retex-image img {
   transition: transform 0.3s ease-in-out;
   max-width: 90%;
   margin-top: 2.5%;
   margin-bottom: 2.5%;
 }
 
-#carousel-image img:hover{
+.retex-image img:hover{
   transform: scale(1.05);
 }
 
-#carousel-image p {
+.retex-image p {
   margin-top: 10px;
 }
 
@@ -401,19 +401,19 @@ button.contact:active {
   right: 3vw;
 }
 #download img{
-  width: 100px;
+  width: 70px;
+  filter: invert(100%);
 }
 
 
 /*CSS Media Queries----------------------------------------------------------------------------------------*/
 
 @media screen and (max-width: 800px) {
-/**/
   .carousel{
     max-height: 70%;
     top: 5vh;
   }
-  #carousel-image {
+  .retex-image {
     max-width: 100%;
   }
   #colonne-gauche button{
@@ -464,10 +464,9 @@ button.contact:active {
     font-size: 2.5vw;
   }
   #infoContact #defilement{
-    animation: scroll-left 20s linear infinite; /*a changer en fonction du texte en version finale*/
+    animation: scroll-left 20s linear infinite;
   }
   #download img{
-    filter: invert(100%);
     width: 50px;
   }
 }
